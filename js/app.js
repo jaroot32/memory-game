@@ -2,13 +2,39 @@
  * Create a list that holds all of your cards
  */
 
+// game board consists of sixteen "cards" arranged in a grid.
 
+let ul = document.getElementsByClassName("card");
+let deck = document.getElementById("random-deck");
+// let cards = document.getElementsByClassName("fa");
+
+let arr = function(c) {
+    let a = [];
+    for (let elem of c) {
+        a.push(elem);
+    }
+    return a
+};
+
+console.log(arr(ul));
+
+let shuffled_cards = shuffle(arr(ul));
+console.log(ul)
+console.log(shuffled_cards)
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+ function display(a) {
+     for (let elem of a) {
+        deck.append(elem)
+     }
+ }
+
+ display(shuffled_cards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
