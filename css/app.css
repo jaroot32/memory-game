@@ -91,14 +91,15 @@ h1 {
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
+.score-panel .stars, .stars {
     margin: 0;
     padding: 0;
-    display: inline-block;
+    display: flex;
     margin: 0 5px 0 0;
+    flex-direction: row;
 }
 
-.score-panel .stars li {
+.score-panel .stars li, .stars li {
     list-style: none;
     display: inline-block;
 }
