@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   stars = [],
   modalWin = document.getElementById("myModalWin"),
   modalLost = document.getElementById("myModalLose"),
+  total,
+  btn,
   totalLost,
   btn_lost,
   close_lost,
@@ -53,9 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
     totalLost.innerHTML = "";
     totalLost.innerHTML = `You took ${moves} moves, and you have ${matches} matches.`;
     btn_lost = document.getElementById("btn-lost");
+    btn_lost.className = "btn btn-losing";
     btn_lost.onclick = init;
 
   }
+
+  // if all cards have matched, display a message with the final score 
 
   function winning() {
       // Get the <span> element that closes the modal
@@ -69,9 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // Get the modal
       
       modalWin.style.display = "block";
-      let total = document.getElementById("total");
+      total = document.getElementById("total");
       total.innerHTML = `You took ${moves} moves, and you have ${matches} matches.`;
-      let btn = document.getElementById("myBtn");
+      btn = document.getElementById("myBtn");
+      btn.className = "btn btn-won";
       btn.onclick = init;
 
       window.onclick = function(event) {
@@ -113,12 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
       init();
     });
     
-  /*
-  * Display the cards on the page
-  *   - shuffle the list of cards using the provided "shuffle" method below
-  *   - loop through each card and create its HTML
-  *   - add each card's HTML to the page
-  */        
+//  Display the cards on the page
+// loop through each card and create its HTML
 
   function generateCards(c) {
     
@@ -130,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
       });
       
+      // shuffle the list of cards using the provided "shuffle" method below
+
       let shuffled_cards = shuffle(cards)
       let joined = shuffled_cards.join('')
 
@@ -153,18 +157,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   }
 
-  /*
-  * set up the event listener for a card. If a card is clicked:
-  *  - display the card's symbol (put this functionality in another function that you call from this one)
-  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
-  *  - if the list already has another card, check to see if the two cards match
-  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
-  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
-  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
-  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
-  */
 
+  // add the card to a *list* of "open" cards 
   let target_arr = [];
+  
+  // display the card's symbol 
 
   function showCard(card) {
     card.classList.add("open", "show")
@@ -204,6 +201,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   }
 
+  // increment the move counter and display it on the page
+
   function incrementMoves() {
     
     moves++
@@ -226,6 +225,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   }
 
+  // if all cards have matched, display a message with the final score 
+  
   function matchedCard() {
     
     matches++        
@@ -236,6 +237,8 @@ document.addEventListener('DOMContentLoaded', function () {
       winning()
     }
   }
+
+  // if the list already has another card, check to see if the two cards match
 
   function checkMatch(card) {
 
@@ -249,9 +252,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return
       }
       
+      // if the cards do match, lock the cards in the open position 
+      
       if (target_arr[0].firstElementChild.dataset.card === card.firstElementChild.dataset.card) {
         lockCard(card)
       } else {
+        // if the cards do not match, remove the cards from the list and hide the card's symbol 
         hideCard(card)
       }
     
@@ -268,6 +274,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
   }
+
+  // set up the event listener for a card. If a card is clicked:
 
   deck.onclick = function(e) {
       
@@ -298,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
     stars_list.innerHTML = "";
     generateStars();
     deck.innerHTML = "";
+    // add each card's HTML to the page
     deck.innerHTML = generateCards(cards);
   }
 
