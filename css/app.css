@@ -154,14 +154,19 @@ h1 {
 
 /* button styles for win and lose */
 
-  /* .btn {
-
-  }
+.btn {
+	border: none;
+	color: #fff;
+  } 
 
   .btn-losing {
-
+    background-color: red;
   }
 
   .btn-won {
+    background-color: seagreen;
+  } 
 
-  } */
+  .btn h3 {
+    padding: 0 36px 0 36px;
+  }
