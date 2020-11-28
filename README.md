@@ -1,20 +1,7 @@
-# Memory Game Project
+# Memory/Matching Game Project by: Jonathan Root
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+### To win the game you have to click and match 8 pairs of cards before the stars and timer runs out.  Every 3 moves you make will delete a star.
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+### The app uses JavaScript functions, arrays, conditionals, browser events, setTimeout, and setInterval.
